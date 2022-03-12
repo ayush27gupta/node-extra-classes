@@ -20,13 +20,15 @@ const middleware2 = (req, res, next) => {
   next();
 };
 
-//Using middleware
+//Using middleware1 on all routes
 app.use(middleware1);
 
 //End-points
 app.get("/greet", (req, res) => {
   res.send("Holla Amigos");
 });
+
+//using middleware2 on /greet2 route only
 app.get("/greet2", middleware2, (req, res) => {
   res.send("Konnichiwa");
 });
